@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import {Data} from './components/Data'
 import {TipTotal } from './components/TipTotal'
 import Logo from './assets/logo.svg'
-
+import './App.css'
 
 function App() {
   const [bill, setBill] = useState(0)
@@ -26,12 +26,14 @@ function App() {
         <img src={Logo} className="App-logo" alt="logo" />
       </header>
       <main>
+      <section className='info-container'>
         <Data 
         getBill={ (value)=>setBill(value)}
         getTip={ (ref)=>setTip(ref.current.value.replace(/[^0-9]/g,""))}
         getPeople={ (value)=>setPeople(value)}
-        />    
-      <section>
+        />  
+      </section>  
+      <section className='result-container'>
         <TipTotal 
           bill={bill}
           tip={tip}

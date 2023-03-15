@@ -11,26 +11,26 @@ export function TipTotal (props){
     })
     return(
         <>
-            <div className='tip-amount-container'>
+            <div className='tip-container'>
                 <div>
                     <p>Tip Amount</p>
-                    <span>/ person</span>
+                    <span className="person-span">/ person</span>
                 </div>
 
-                <span>${amount}</span>
+                <span className="amount">${amount}</span>
             </div>
             
-            <div className='tip-total-container'>
+            <div className='total-container'>
                 <div>
                     <p>Total</p>
-                    <span>/ person</span>
+                    <span className="person-span">/ person</span>
                 </div>
             
-                <span>${total}</span>
+                <span className="amount">${total}</span>
             
             </div>
 
-            <button type="button" className='reset-button' >
+            <button type="button" className='btn-reset' >
                 reset 
             </button>
         </>

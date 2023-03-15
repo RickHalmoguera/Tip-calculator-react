@@ -2,10 +2,13 @@
   "name": "tip-calculator-react",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://RickHalmoguera.github.io/Tip-calculator-react",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=/Tip-calculator-react",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import {Data} from './components/Data'
-import {TipTotal } from './components/TipTotal'
+import {TipCalculation } from './components/TipCalculation'
 import Logo from './assets/logo.svg'
 import './App.css'
 
@@ -9,15 +8,21 @@ function App() {
   const [tip, setTip] = useState(0)
   const [people, setPeople] = useState(0)
   
-  
+  const getBill =(value)=>{
+    setBill(value)
+  }
+  const getTip =(ref)=>{
+    setTip(ref.current.value.replace(/[^0-9]/g,""))
+  }
+
+  const getPeople =(value)=>{
+    setPeople(value)
+  }
+
   const resetAll = () => {
     setBill(0)
     setTip(0)
     setPeople(0)
-    setAmount(0)
-    setTotal(0)
-    billInput.current.value = ''
-    peopleInput.current.value = ''
   }
   
   return (
@@ -26,21 +31,17 @@ function App() {
         <img src={Logo} className="App-logo" alt="logo" />
       </header>
       <main>
-      <section className='info-container'>
-        <Data 
-        getBill={ (value)=>setBill(value)}
-        getTip={ (ref)=>setTip(ref.current.value.replace(/[^0-9]/g,""))}
-        getPeople={ (value)=>setPeople(value)}
-        />  
-      </section>  
-      <section className='result-container'>
-        <TipTotal 
+        <>
+          <TipCalculation
+          getBill={getBill}
+          getTip={getTip}
+          getPeople={getPeople}
           bill={bill}
           tip={tip}
           people ={ people }
-        />
-
-      </section>
+          handleReset={resetAll}
+          />  
+        </>  
       </main>
     </>
   )
